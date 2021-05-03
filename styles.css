@@ -1,12 +1,18 @@
-/* font-family: 'Lora', serif;
-
-    font-family: 'Montserrat', sans-serif; */
-
 html {
   box-sizing: border-box;
   font-size: 62.5%;
 }
 
+.overlay {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  position: relative;
+  top: 0;
+  left: 0;
+}
 body {
   margin: 0;
   padding: 1rem 7.7rem 1rem 7.7rem;
@@ -22,6 +28,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 8vh;
+  z-index: 5;
 }
 nav p {
   display: inline-block;
@@ -33,23 +41,19 @@ nav p {
   align-items: center;
   text-transform: uppercase;
 }
-.mobile-nav {
-  width: 0%;
-}
 
-.mobile-nav li {
-  padding-bottom: 4rem;
-}
-nav ul {
+.nav-links {
   display: flex;
   justify-content: space-between;
   width: 50%;
   padding: 0;
   margin: 0;
   align-items: center;
+  transition: all 0.5s;
+  z-index: 5;
 }
 
-nav ul li {
+.nav-links li {
   list-style-type: none;
   font-size: 1.8rem;
   padding-bottom: 0.5rem;
@@ -57,10 +61,24 @@ nav ul li {
   transition: 0.5s all;
 }
 
-nav ul li:hover,
+.nav-links li:hover,
 .mobile-nav ul li:hover {
   border-bottom: 2px solid #fff;
   cursor: pointer;
+}
+.hamburger {
+  display: none;
+  transition: all 3s ease;
+  cursor: pointer;
+}
+
+/* Mobile Nav Styles */
+.hamburger .line {
+  width: 2.5rem;
+  height: 2px;
+  margin: 0.5rem;
+  background-color: #fafafa;
+  transition: all 0.5s;
 }
 
 /* MAIN SECTION STYLES */
@@ -69,14 +87,11 @@ main {
   margin-top: 10.3rem;
   display: flex;
   justify-content: space-between;
-  /* border: 1px solid red; */
 }
 
 .main__content {
-  /* border: 1px solid yellow; */
   width: 50%;
   padding-right: 8.7rem;
-  /* align-self: center; */
 }
 
 .main__content p {
@@ -94,7 +109,6 @@ a {
   font-weight: 700;
 }
 .main__image {
-  /* border: 1px solid blue; */
   width: 60%;
   position: relative;
   top: -6rem;
@@ -106,9 +120,8 @@ a {
 }
 
 .interior-image {
-  /* width: 56.11rem;
-  height: 48.65rem; */
   width: 100%;
+  z-index: 2;
 }
 
 .card {
@@ -165,14 +178,30 @@ a {
   display: none;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 600px) {
   body {
     padding: 1.9rem 1.2rem;
     overflow: scroll;
+    overflow-x: hidden;
   }
-
-  nav ul li {
-    font-size: 0.8rem;
+  .hamburger {
+    display: block;
+    transition: all 3s;
+  }
+  .nav-links {
+    position: absolute;
+    top: 11vh;
+    right: 0;
+    width: 100%;
+    background-color: #181719;
+    /* background-color: red; */
+    transform: translateX(100%);
+    height: 89vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 8;
   }
 
   main {
@@ -196,11 +225,10 @@ a {
     width: 100%;
     top: 0;
     margin-top: 2.5rem;
-    /* margin-bottom: 1rem; */
+    z-index: 2;
   }
   .card {
     width: 70%;
-    /* height: 13.8rem; */
     bottom: 12rem;
     left: 4rem;
   }
@@ -213,4 +241,18 @@ a {
   .card__text {
     font-size: 1.8rem;
   }
+}
+
+.nav-active {
+  transform: translateX(0);
+}
+
+.hamburger-active .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.hamburger-active .line2 {
+  opacity: 0;
+}
+.hamburger-active .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
 }
