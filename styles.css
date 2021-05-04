@@ -1,33 +1,32 @@
-html {
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+html {
   font-size: 62.5%;
 }
 
-.overlay {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  background-color: white;
-  position: relative;
-  top: 0;
-  left: 0;
-}
 body {
-  margin: 0;
   padding: 1rem 7.7rem 1rem 7.7rem;
   font-size: 2.4rem;
   background-color: #181719;
   color: #fff;
   font-family: "Montserrat", sans-serif;
   max-height: 100vh;
+  max-width: 100vw;
   overflow: hidden;
 }
 
 nav {
+  position: fixed;
   display: flex;
   justify-content: space-between;
+  top: 2rem;
+  padding-right: 3rem;
   align-items: center;
+  width: 90%;
   height: 8vh;
   z-index: 5;
 }
@@ -84,7 +83,7 @@ nav p {
 /* MAIN SECTION STYLES */
 
 main {
-  margin-top: 10.3rem;
+  margin-top: 15.3rem;
   display: flex;
   justify-content: space-between;
 }
@@ -126,16 +125,16 @@ a {
 
 .card {
   width: 35.1rem;
-  height: 10.9rem;
-  padding: 3.4rem 2.6rem;
+  height: 13.9rem;
+  padding: 4rem 2.6rem;
   background-color: #181719;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   box-shadow: 0 0 4px #000;
   position: relative;
-  bottom: 12rem;
-  left: 14rem;
+  bottom: 8rem;
+  left: 20rem;
 }
 
 .card__profile {
@@ -187,13 +186,16 @@ a {
     display: block;
     transition: all 3s;
   }
+  nav {
+    top: 0;
+    width: 100%;
+  }
   .nav-links {
     position: absolute;
-    top: 11vh;
+    top: 8vh;
     right: 0;
     width: 100%;
     background-color: #181719;
-    /* background-color: red; */
     transform: translateX(100%);
     height: 89vh;
     display: flex;
@@ -206,7 +208,7 @@ a {
   main {
     flex-flow: column nowrap;
     width: 100%;
-    margin-top: 4.5rem;
+    margin-top: 10rem;
     align-items: center;
   }
   .main__content {
@@ -215,9 +217,11 @@ a {
   }
   .main__content h1 {
     font-size: 3.6rem;
+    margin-bottom: 2rem;
   }
   .main__content p {
     font-size: 1.4rem;
+    margin-bottom: 1.5rem;
   }
 
   .main__image {
@@ -247,11 +251,11 @@ a {
 }
 
 .hamburger-active .line1 {
-  transform: rotate(-45deg) translate(-5px, 6px);
+  transform: rotate(-45deg) translate(-5px, 5px);
 }
 .hamburger-active .line2 {
   opacity: 0;
 }
 .hamburger-active .line3 {
-  transform: rotate(45deg) translate(-5px, -6px);
+  transform: rotate(45deg) translate(-5px, -5px);
 }
